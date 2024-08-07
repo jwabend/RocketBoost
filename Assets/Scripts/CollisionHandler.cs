@@ -10,6 +10,15 @@ public class CollisionHandler : MonoBehaviour
    
     
     [SerializeField] float delay;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip crash;
+
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void OnCollisionEnter(Collision other) 
     {
@@ -20,31 +29,31 @@ public class CollisionHandler : MonoBehaviour
             case "Finish":
                 Debug.Log("You win!");
                 StartSucessSequence();
-                
                 break;
+
             case "Friendly":
                 Debug.Log("On landing pad");
                 break;
+
             default:
                 Debug.Log("You died!");
                 StartCrashSequence();
-                
-            
                 break;
         }
     }
 
-    void StartCrashSequence(){
+    void StartCrashSequence()
+    {
+        audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
-        Invoke("ReloadLevel" ,  delay);
-        
-        
+        Invoke("ReloadLevel" ,  delay); 
     }
 
-    void StartSucessSequence(){
+    void StartSucessSequence()
+    {
+        audioSource.PlayOneShot(success);
         GetComponent<Movement>().enabled = false;
-        Invoke("LoadNextLevel", delay);
-        
+        Invoke("LoadNextLevel", delay);   
     }
 
     void ReloadLevel()

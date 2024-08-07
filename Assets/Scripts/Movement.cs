@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
 {
     Rigidbody rb;
     AudioSource audioSource;
+
+    [SerializeField] AudioClip thrusters;
     [SerializeField]public float thrust;
     [SerializeField]public float rotateThrust;
     
@@ -33,7 +35,7 @@ public class Movement : MonoBehaviour
 
             if (!audioSource.isPlaying)
             {   
-                audioSource.Play(0);
+                audioSource.PlayOneShot(thrusters);
             }
         }
 
