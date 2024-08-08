@@ -7,13 +7,14 @@ using UnityEditor.Callbacks;
 
 public class CollisionHandler : MonoBehaviour
 {
-   
     
     [SerializeField] float delay;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
 
     AudioSource audioSource;
+
+    bool isTransitioning = false;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class CollisionHandler : MonoBehaviour
     void OnCollisionEnter(Collision other) 
     {
         
+        if (isTransitioning) { return;}
 
         switch (other.gameObject.tag)
         {
@@ -44,13 +46,17 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
-        Invoke("ReloadLevel" ,  delay); 
+        Invoke("ReloadLevel" , delay);
     }
 
     void StartSucessSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(success);
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", delay);   

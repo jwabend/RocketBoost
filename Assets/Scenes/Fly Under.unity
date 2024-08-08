@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,23 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &135422881 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 801366456676803908, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
-  m_PrefabInstance: {fileID: 1238333062944076327}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &135422889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135422881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3e073dbdd01274eb9d8e5df023e4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13674812, y: -0, z: -0, w: 0.9906059}
-  m_LocalPosition: {x: -0.26, y: 7.45, z: -18.17}
+  m_LocalPosition: {x: -2.6, y: 9.18, z: -24.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -443,21 +426,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
-    - target: {fileID: 8864103253367436478, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
-      propertyPath: Loop
-      value: 0
+    - target: {fileID: 1503461861760775953, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
+      propertyPath: thrusters
+      value: 
+      objectReference: {fileID: 8300000, guid: 35dc53041034a8744aaba3078d428d3a, type: 3}
+    - target: {fileID: 2994223895448579845, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
+      propertyPath: crash
+      value: 
+      objectReference: {fileID: 8300000, guid: dda2e37d18e2b004a9c8b9f70757165a, type: 3}
+    - target: {fileID: 2994223895448579845, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
+      propertyPath: delay
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2994223895448579845, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 8300000, guid: 94db09bd9028a6d4ea12d11d4ace382b, type: 3}
     - target: {fileID: 8864103253367436478, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 801366456676803908, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 135422889}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
 --- !u!1001 &1752524920097047035
 PrefabInstance:

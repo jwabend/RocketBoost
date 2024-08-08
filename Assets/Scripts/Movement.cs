@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rb;
-    AudioSource audioSource;
-
     [SerializeField] AudioClip thrusters;
     [SerializeField]public float thrust;
     [SerializeField]public float rotateThrust;
+
+    Rigidbody rb;
+    AudioSource audioSource;
+
     
 
     // Start is called before the first frame update

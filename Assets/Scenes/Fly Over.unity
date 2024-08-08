@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13674812, y: -0, z: -0, w: 0.9906059}
-  m_LocalPosition: {x: -0.26, y: 7.45, z: -18.17}
+  m_LocalPosition: {x: -1.76, y: 9.28, z: -28.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 1503461861760775953, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
+      propertyPath: thrusters
+      value: 
+      objectReference: {fileID: 8300000, guid: 35dc53041034a8744aaba3078d428d3a, type: 3}
     - target: {fileID: 8864103253367436478, guid: 783fbaf28fa1bb54e90e5793de31dd23, type: 3}
       propertyPath: Loop
       value: 0
