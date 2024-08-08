@@ -53,7 +53,6 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence()
     {
         isTransitioning = true;
-        
         audioSource.Stop();
         crashParticle.Play();
         audioSource.PlayOneShot(crash);
