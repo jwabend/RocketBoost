@@ -61,6 +61,7 @@ public class CollisionHandler : MonoBehaviour
     {
         isTransitioning = true;
         audioSource.Stop();
+        Debug.Log("Playing Crash Particle");
         crashParticle.Play();
         audioSource.PlayOneShot(crash);
         GetComponent<Movement>().enabled = false;
