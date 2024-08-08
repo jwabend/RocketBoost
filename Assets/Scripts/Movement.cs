@@ -14,12 +14,9 @@ public class Movement : MonoBehaviour
     [SerializeField] ParticleSystem leftBooster;
     [SerializeField] ParticleSystem rightBooster;
     [SerializeField] ParticleSystem mainBooster;
-    
 
     Rigidbody rb;
     AudioSource audioSource;
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -35,19 +32,14 @@ public class Movement : MonoBehaviour
         ProcessRotation();
     }
 
-    void ProcessThrust(){
+    void ProcessThrust()
+    {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
-        {   
-            
-            rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
-
-            if (!audioSource.isPlaying)
-            {   
-                audioSource.PlayOneShot(thrusters);
-            }
+        {
+            Thrusting();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
         {
             mainBooster.Play();
         }
@@ -71,16 +63,10 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("A is being pressed");
-            ApplyRotation(rotateThrust);
-
-            if (!audioSource.isPlaying)
-            {   
-                audioSource.PlayOneShot(thrusters);
-            }
+            ThrustLeft();
         }
 
-        if(Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A))
         {
             rightBooster.Stop();
             audioSource.Stop();
@@ -93,20 +79,15 @@ public class Movement : MonoBehaviour
         else return;
     }
 
+
     void ProcessRotationRight()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("A is being pressed");
-            ApplyRotation(-rotateThrust);
-
-            if (!audioSource.isPlaying)
-            {   
-                audioSource.PlayOneShot(thrusters);
-            }
+            ThrustRight();
         }
 
-        if(Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.D))
         {
             leftBooster.Stop();
             audioSource.Stop();
@@ -117,6 +98,38 @@ public class Movement : MonoBehaviour
             leftBooster.Play();
         }
         else return;
+    }
+
+    void Thrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(thrusters);
+        }
+    }
+
+    void ThrustLeft()
+    {
+        // Debug.Log("A is being pressed");
+        ApplyRotation(rotateThrust);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(thrusters);
+        }
+    }
+
+    void ThrustRight()
+    {
+        // Debug.Log("D is being pressed");
+        ApplyRotation(-rotateThrust);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(thrusters);
+        }
     }
 
     void ApplyRotation(float rotationThisFrame)

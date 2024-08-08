@@ -19,18 +19,24 @@ public class CollisionHandler : MonoBehaviour
     
 
     bool isTransitioning = false;
+    bool enableCollision = true;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         
+        
+    }
+
+    void Update()
+    {
+        RespondToDebug();
     }
 
     void OnCollisionEnter(Collision other) 
     {
         
-        if (isTransitioning) { return;}
-
+        if (isTransitioning || !enableCollision) { return; }
         switch (other.gameObject.tag)
         {
             case "Finish":
@@ -48,6 +54,8 @@ public class CollisionHandler : MonoBehaviour
                 break;
         }
     }
+
+
 
     void StartCrashSequence()
     {
@@ -84,4 +92,20 @@ public class CollisionHandler : MonoBehaviour
         }
         SceneManager.LoadScene(nextScene);
     }
+
+    void RespondToDebug()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            // Debug.Log("Pressing L");
+            LoadNextLevel();
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            // Debug.Log("Pressing C");
+            enableCollision = !enableCollision;
+        }
+    }
+
 }
