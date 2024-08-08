@@ -11,7 +11,6 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float delay;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
-
     [SerializeField] ParticleSystem successParticle;
     [SerializeField] ParticleSystem crashParticle;
 
