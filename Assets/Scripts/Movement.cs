@@ -142,4 +142,13 @@ public class Movement : MonoBehaviour
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime, Space.World);
         rb.freezeRotation = false;
     }
+
+    public bool IsRocketUpright()
+    {
+        // Define a threshold for "upright" (adjust as needed)
+        float uprightThreshold = 0.7f; // Cosine of 45 degrees
+
+        // Check the dot product of the up vector with the world's up vector
+        return Vector3.Dot(transform.up, Vector3.up) > uprightThreshold;
+    }
 }

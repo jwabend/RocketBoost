@@ -40,9 +40,17 @@ public class CollisionHandler : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Finish":
-                Debug.Log("You win!");
-                StartSucessSequence();
-                break;
+                if (GetComponent<Movement>().IsRocketUpright())
+                {
+                    Debug.Log("You win!");
+                    StartSucessSequence();
+                }
+                else
+                {
+                    Debug.Log("Rocket is not upright! Try again.");
+                    StartCrashSequence(); // or handle as needed
+                }
+            break;
 
             case "Friendly":
                 Debug.Log("On landing pad");
