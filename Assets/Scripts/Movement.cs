@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
    
     [SerializeField]public float thrust;
     [SerializeField]public float rotateThrust;
+    [SerializeField]public float spinMultiplier;
     [SerializeField] AudioClip thrusters;
     [SerializeField] ParticleSystem leftBooster;
     [SerializeField] ParticleSystem rightBooster;
@@ -38,7 +39,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
         {
             Thrusting();
-            transform.Rotate(Vector3.up * rotateThrust * Time.deltaTime);
+            transform.Rotate(Vector3.up * spinMultiplier * Time.deltaTime);
 
         }
 
